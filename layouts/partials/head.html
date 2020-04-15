@@ -60,9 +60,11 @@
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 {{- end -}}
 
+<!-- fonts -->
+<link rel="stylesheet" href="https://use.typekit.net/axi7fmh.css">
+  
 <!-- Styles -->
-{{ $style := resources.Get "sass/main.scss" | toCSS | minify | fingerprint }}
-<link href="{{ $style.Permalink }}" rel="stylesheet">
+<link href="{{ print "dist/" .Site.Data.even.assets.even.css | relURL }}" rel="stylesheet">
 {{ if .Site.Params.publicCDN.enable -}}
   {{ if .Site.Params.fancybox }}{{ .Site.Params.publicCDN.fancyboxCSS | safeHTML }}{{ end }}
 {{- else -}}
